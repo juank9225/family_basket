@@ -2,9 +2,11 @@ package co.com.sofkau.api.mapper;
 
 import co.com.sofkau.api.dtos.ProductsDTO;
 import co.com.sofkau.model.products.Products;
+import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
 
+@Component
 public class ProductsMapper {
     public Function<Products, ProductsDTO> toDTO(){
         return products -> new ProductsDTO(

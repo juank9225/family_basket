@@ -2,9 +2,11 @@ package co.com.sofkau.mongo.helper;
 
 import co.com.sofkau.model.products.Products;
 import co.com.sofkau.mongo.entity.ProductsEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
 
+@Component
 public class ProductsMapper {
     public Function<ProductsEntity, Products> fromProductsEntity(){
         return newEntity->new Products(
