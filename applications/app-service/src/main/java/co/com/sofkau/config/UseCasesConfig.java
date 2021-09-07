@@ -2,6 +2,7 @@ package co.com.sofkau.config;
 
 import co.com.sofkau.model.products.gateways.ProductsRepository;
 import co.com.sofkau.usecase.createproducts.CreateProductsUseCase;
+import co.com.sofkau.usecase.createproducts.ListProductsUseCase;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -17,4 +18,8 @@ public class UseCasesConfig {
       CreateProductsUseCase createProductsUseCase(ProductsRepository productsRepository){
               return new CreateProductsUseCase(productsRepository);
       }
+
+    ListProductsUseCase listProductsUseCase(ProductsRepository productsRepository){
+        return new ListProductsUseCase(productsRepository);
+    }
 }

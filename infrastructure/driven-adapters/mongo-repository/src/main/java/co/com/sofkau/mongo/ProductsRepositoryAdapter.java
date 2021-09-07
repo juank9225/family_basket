@@ -7,6 +7,7 @@ import co.com.sofkau.mongo.helper.AdapterOperations;
 import co.com.sofkau.mongo.helper.ProductsMapper;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Repository
@@ -28,5 +29,10 @@ implements ProductsRepository
     @Override
     public Mono<Products> addProducts(Products products) {
         return this.repository.save(mapper.fromProducts().apply(products)).map(mapper.fromProductsEntity());
+    }
+
+    @Override
+    public Flux<Products> listProducts() {
+        return this.repository.findAll().map(mapper.fromProductsEntity());
     }
 }

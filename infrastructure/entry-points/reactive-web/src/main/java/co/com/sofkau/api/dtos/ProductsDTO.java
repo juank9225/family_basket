@@ -14,5 +14,4 @@ public class ProductsDTO {
     private int precio;
     private int lote;
 
-
 }
