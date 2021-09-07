@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.function.Function;
 
 @Component
-public class ProductsMapper {
+public class MapperProducts {
     public Function<Products, ProductsDTO> toDTO(){
         return products -> new ProductsDTO(
                 products.getId(),
