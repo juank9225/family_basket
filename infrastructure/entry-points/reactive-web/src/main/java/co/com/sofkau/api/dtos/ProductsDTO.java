@@ -1,14 +1,17 @@
-package co.com.sofkau.model.products;
-import lombok.*;
+package co.com.sofkau.api.dtos;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder = true)
-public class Products {
+public class ProductsDTO {
     private String id;
     private String codigo;
     private String nombre;
     private int precio;
     private int lote;
+
 }
