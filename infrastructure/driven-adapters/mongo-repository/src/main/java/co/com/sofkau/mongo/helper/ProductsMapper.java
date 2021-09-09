@@ -8,23 +8,14 @@ import java.util.function.Function;
 
 @Component
 public class ProductsMapper {
-    public Function<ProductsEntity, Products> fromProductsEntity(){
-        return newEntity->new Products(
-                newEntity.getId(),
-                newEntity.getCodigo(),
-                newEntity.getNombre(),
-                newEntity.getPrecio(),
-                newEntity.getLote()
-        );
-    }
 
-    public Function<Products,ProductsEntity> fromProducts(){
-        return newProducts->new ProductsEntity(
-                newProducts.getId(),
-                newProducts.getCodigo(),
-                newProducts.getNombre(),
-                newProducts.getPrecio(),
-                newProducts.getLote()
-        );
+    public static Products convertidos(ProductsEntity productsEntity){
+        return Products.builder()
+                .id(productsEntity.getId())
+                .codigo(productsEntity.getCodigo())
+                .nombre(productsEntity.getNombre())
+                .precio(productsEntity.getPrecio())
+                .lote(productsEntity.getLote())
+                .build();
     }
 }

@@ -16,7 +16,7 @@ public class Handler {
     private final ListProductsUseCase listProductsUseCase;
     private final MapperProducts mapperProducts;
 
-    public Mono<ProductsDTO> createProducts(ProductsDTO productsDTO){
+    public Mono<ProductsDTO> createProducts(ProductsDTO productsDT){
         return createProductsUseCase.execute(mapperProducts.productsDTO().apply(productsDTO)).map(mapperProducts.toDTO());
     }
 
