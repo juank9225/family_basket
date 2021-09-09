@@ -1,7 +1,6 @@
 package co.com.sofkau.config;
 
-import org.reactivecommons.utils.ObjectMapper;
-import org.reactivecommons.utils.ObjectMapperImp;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
