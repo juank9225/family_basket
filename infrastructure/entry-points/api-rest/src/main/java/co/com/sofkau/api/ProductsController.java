@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -20,6 +21,11 @@ public class ProductsController {
     public Mono<ProductsDTO> guardarProducts(@RequestBody ProductsDTO productsDTO){
         return createProductsUseCase.execute(ProductsDTO.convertirDTOADominioCreacion(productsDTO))
                 .map(ProductsDTO::convertidorDominioADTO);
+    }
+
+    @GetMapping(path = "/list")
+    public Flux<ProductsDTO> listarProductos(){
+        return listProductsUseCase.execute().map(ProductsDTO::convertidorDominioADTO);
     }
 
 }
