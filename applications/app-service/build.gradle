@@ -11,6 +11,7 @@ dependencies {
     runtimeOnly('org.springframework.boot:spring-boot-devtools')
     implementation 'org.springframework.boot:spring-boot-starter-json'
     implementation 'org.springframework:spring-web'
+    implementation 'org.reactivecommons.utils:object-mapper:0.1.0'
 }
 
 task explodedJar(type: Copy) {

@@ -13,9 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-@Configuration
 @Repository
-@Component
 public class ProductsRepositoryAdapter extends AdapterOperations<Products, ProductsEntity, String, ProductsDBRepository>
 implements ProductsRepository
 {
