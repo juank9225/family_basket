@@ -30,4 +30,9 @@ implements ProductsRepository
     public Flux<Products> listProducts() {
         return findAll();
     }
+
+    @Override
+    public Mono<Products> getProductId(String id) {
+        return findById(id);
+    }
 }

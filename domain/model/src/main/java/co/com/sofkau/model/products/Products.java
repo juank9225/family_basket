@@ -11,6 +11,4 @@ public class Products {
     private String nombre;
     private int precio;
     private int lote;
-
-
 }

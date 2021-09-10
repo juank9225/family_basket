@@ -7,4 +7,5 @@ import reactor.core.publisher.Mono;
 public interface ProductsRepository {
     Mono<Products> addProducts(Products products);
     Flux<Products> listProducts();
+    Mono<Products> getProductId(String id);
 }
