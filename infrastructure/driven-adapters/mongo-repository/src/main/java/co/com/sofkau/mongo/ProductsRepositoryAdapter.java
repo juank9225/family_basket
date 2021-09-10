@@ -35,4 +35,9 @@ implements ProductsRepository
     public Mono<Products> getProductId(String id) {
         return findById(id);
     }
+
+    @Override
+    public Mono<Products> updateProducts(Products products) {
+        return save(products);
+    }
 }

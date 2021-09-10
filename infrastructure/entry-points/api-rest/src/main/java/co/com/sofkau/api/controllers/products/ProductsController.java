@@ -3,6 +3,7 @@ import co.com.sofkau.api.controllers.products.dtos.ProductsDTO;
 import co.com.sofkau.usecase.createproducts.CreateProductsUseCase;
 import co.com.sofkau.usecase.createproducts.GetProductUseCase;
 import co.com.sofkau.usecase.createproducts.ListProductsUseCase;
+import co.com.sofkau.usecase.createproducts.UpdateProductsUseCase;
 import org.apache.coyote.Response;
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ public class ProductsController {
     private final CreateProductsUseCase createProductsUseCase;
     private final ListProductsUseCase listProductsUseCase;
     private final GetProductUseCase getProductUseCase;
+    private final UpdateProductsUseCase updateProductsUseCase;
 
     @PostMapping(path = "/product/crear")
     public Mono<ProductsDTO> guardarProducts(@RequestBody ProductsDTO productsDTO){
@@ -36,4 +38,9 @@ public class ProductsController {
     public ResponseEntity<Mono<ProductsDTO>> getProduct(@PathVariable("id")  String id){   return new ResponseEntity(getProductUseCase.execute(id).map(ProductsDTO::convertidorDominioADTO), HttpStatus.OK);
     }
 
+    @PutMapping(path = "/product/actualizar")
+    public ResponseEntity<Mono<ProductsDTO>> updateProducts(@RequestBody ProductsDTO productsDTO){
+        return new ResponseEntity(updateProductsUseCase.execute(ProductsDTO.convertirDTOADominioCreacion(productsDTO))
+                .map(ProductsDTO::convertidorDominioADTO), HttpStatus.OK);
+    }
 }
