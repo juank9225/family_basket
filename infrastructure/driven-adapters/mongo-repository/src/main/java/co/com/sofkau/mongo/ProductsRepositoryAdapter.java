@@ -47,4 +47,9 @@ implements ProductsRepository
         return this.repository.findByCodigo(code);
     }
 
+    @Override
+    public Mono<Products> deleteByCode(String code) {
+        return this.repository.deleteByCodigo(code);
+    }
+
 }

@@ -10,4 +10,5 @@ import reactor.core.publisher.Mono;
 public interface ProductsDBRepository extends ReactiveMongoRepository<ProductsEntity, String>, ReactiveQueryByExampleExecutor<ProductsEntity> {
     //@Transactional(readOnly = false)
     Mono<Products> findByCodigo (String code);
+    Mono<Products> deleteByCodigo(String code);
 }

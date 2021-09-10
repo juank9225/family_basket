@@ -21,6 +21,7 @@ public class ProductsController {
     private final GetProductUseCase getProductUseCase;
     private final UpdateProductsUseCase updateProductsUseCase;
     private final DeleteProductsUseCase deleteProductsUseCase;
+    private final DeleteByCodeUseCase deleteByCodeUseCase;
     private final GetProductCodeUseCase getProductCodeUseCase;
 
     @PostMapping(path = "/crear")
@@ -47,6 +48,11 @@ public class ProductsController {
     @DeleteMapping(path = "/eliminar/{id}")
     public ResponseEntity<Mono<Void>> deleteProducts(@PathVariable("id")  String id){
         return new ResponseEntity(deleteProductsUseCase.execute(id), HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/eliminarcode/{code}")
+    public ResponseEntity<Mono<ProductsDTO>> deleteProductsByCode(@PathVariable("code")  String code){
+        return new ResponseEntity(deleteByCodeUseCase.execute(code).map(ProductsDTO::convertidorDominioADTO), HttpStatus.OK);
     }
 
     @GetMapping(path = "/getcode/{code}")

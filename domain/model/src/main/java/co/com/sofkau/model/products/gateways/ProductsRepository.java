@@ -12,4 +12,5 @@ public interface ProductsRepository {
     Mono<Products> updateProducts(Products products);
     Mono<Void> deleteProducts(String id);
     Mono<Products> getProductCode(String code);
+    Mono<Products> deleteByCode(String code);
 }
