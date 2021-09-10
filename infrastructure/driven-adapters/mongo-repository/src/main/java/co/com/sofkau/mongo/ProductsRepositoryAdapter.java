@@ -5,11 +5,7 @@ import co.com.sofkau.model.products.gateways.ProductsRepository;
 import co.com.sofkau.mongo.entity.ProductsEntity;
 import co.com.sofkau.mongo.helper.AdapterOperations;
 import co.com.sofkau.mongo.helper.ProductsMapper;
-import lombok.var;
 import org.reactivecommons.utils.ObjectMapper;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -40,4 +36,10 @@ implements ProductsRepository
     public Mono<Products> updateProducts(Products products) {
         return save(products);
     }
+
+    @Override
+    public Mono<Void> deleteProducts(String id) {
+        return deleteById(id).then(Mono.empty());
+    }
+
 }

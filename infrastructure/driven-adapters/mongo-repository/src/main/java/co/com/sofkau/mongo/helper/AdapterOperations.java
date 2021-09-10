@@ -1,5 +1,6 @@
 package co.com.sofkau.mongo.helper;
 
+import co.com.sofkau.model.products.Products;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.data.repository.query.ReactiveQueryByExampleExecutor;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;

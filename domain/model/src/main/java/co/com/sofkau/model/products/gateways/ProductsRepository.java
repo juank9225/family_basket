@@ -9,4 +9,6 @@ public interface ProductsRepository {
     Flux<Products> listProducts();
     Mono<Products> getProductId(String id);
     Mono<Products> updateProducts(Products products);
+    Mono<Void> deleteProducts(String id);
+
 }
