@@ -1,5 +1,5 @@
-package co.com.sofkau.api;
-import co.com.sofkau.api.dtos.ProductsDTO;
+package co.com.sofkau.api.controllers.products;
+import co.com.sofkau.api.controllers.products.dtos.ProductsDTO;
 import co.com.sofkau.usecase.createproducts.CreateProductsUseCase;
 import co.com.sofkau.usecase.createproducts.ListProductsUseCase;
 import lombok.AllArgsConstructor;

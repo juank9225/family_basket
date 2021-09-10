@@ -1,4 +1,4 @@
-package co.com.sofkau.api.dtos;
+package co.com.sofkau.api.controllers.products.dtos;
 
 import co.com.sofkau.model.products.Products;
 import lombok.AllArgsConstructor;
