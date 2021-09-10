@@ -42,4 +42,9 @@ implements ProductsRepository
         return deleteById(id).then(Mono.empty());
     }
 
+    @Override
+    public Mono<Products> getProductCode(String code) {
+        return this.repository.findByCodigo(code);
+    }
+
 }

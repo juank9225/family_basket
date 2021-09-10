@@ -21,6 +21,7 @@ public class ProductsController {
     private final GetProductUseCase getProductUseCase;
     private final UpdateProductsUseCase updateProductsUseCase;
     private final DeleteProductsUseCase deleteProductsUseCase;
+    private final GetProductCodeUseCase getProductCodeUseCase;
 
     @PostMapping(path = "/crear")
     public Mono<ProductsDTO> guardarProducts(@RequestBody ProductsDTO productsDTO){
@@ -46,5 +47,9 @@ public class ProductsController {
     @DeleteMapping(path = "/eliminar/{id}")
     public ResponseEntity<Mono<Void>> deleteProducts(@PathVariable("id")  String id){
         return new ResponseEntity(deleteProductsUseCase.execute(id), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/getcode/{code}")
+    public ResponseEntity<Mono<ProductsDTO>> get(@PathVariable("code")  String code){   return new ResponseEntity(getProductCodeUseCase.execute(code).map(ProductsDTO::convertidorDominioADTO), HttpStatus.OK);
     }
 }
