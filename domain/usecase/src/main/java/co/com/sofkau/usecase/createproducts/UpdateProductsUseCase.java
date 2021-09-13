@@ -12,14 +12,12 @@ public class UpdateProductsUseCase {
 
     public Mono<Products> execute(Products products){
         return productsRepository.getProductId(products.getId())
-                .flatMap(product1 -> {
-                            product1.setId(products.getId());
-                            product1.setNombre(products.getNombre());
-                            product1.setCodigo(products.getCodigo());
-                            product1.setPrecio(products.getPrecio());
-                            product1.setLote(products.getLote());
-                            return productsRepository.updateProducts(product1);
-                })
+                .flatMap(product -> productsRepository.updateProducts(product.toBuilder()
+                                .nombre(products.getNombre())
+                                .codigo(products.getCodigo())
+                                .precio(products.getPrecio())
+                                .lote(products.getLote())
+                        .build()))
                 .switchIfEmpty(Mono.error(new IllegalAccessError("Producto no encontrado")));
 
 
