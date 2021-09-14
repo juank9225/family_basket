@@ -19,7 +19,5 @@ public class UpdateProductsUseCase {
                                 .lote(products.getLote())
                         .build()))
                 .switchIfEmpty(Mono.error(new IllegalAccessError("Producto no encontrado")));
-
-
     }
 }
