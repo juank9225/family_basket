@@ -13,7 +13,7 @@ public class CreateProductsUseCase {
         return productsRepository.addProducts(products);
     }
 
-    public Mono<Void> execute2(Products products){
+    public Mono<Void> executeEvent(Products products){
         return productsRepository.addProducts(products).then(Mono.empty());
     }
 }
