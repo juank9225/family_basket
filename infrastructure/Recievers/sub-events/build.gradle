@@ -1,23 +1,24 @@
-plugins {
-    id 'java'
-}
+    plugins {
+        id 'java'
+    }
 
-version 'unspecified'
+    version 'unspecified'
 
-repositories {
-    mavenCentral()
-}
+    repositories {
+        mavenCentral()
+    }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-    implementation project(':usecase')
-    implementation 'org.reactivecommons:async-commons-api:0.4.7'
-    implementation 'org.reactivecommons.utils:object-mapper:0.1.0'
-    implementation group: 'org.reactivecommons', name: 'async-commons-starter', version: '0.4.7'
-    implementation 'org.springframework:spring-context'
-}
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+        compile project(':usecase')
+        compile project(':model')
+        compile 'org.reactivecommons:async-commons-api:0.4.7'
+        compile 'org.reactivecommons.utils:object-mapper:0.1.0'
+        compile group: 'org.reactivecommons', name: 'async-commons-starter', version: '0.4.7'
+        compile 'org.springframework:spring-context'
+    }
 
-test {
-    useJUnitPlatform()
-}
+    test {
+        useJUnitPlatform()
+    }

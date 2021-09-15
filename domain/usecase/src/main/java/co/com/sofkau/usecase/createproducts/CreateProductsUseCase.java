@@ -12,4 +12,8 @@ public class CreateProductsUseCase {
     public Mono<Products> execute(Products products){
         return productsRepository.addProducts(products);
     }
+
+    public Mono<Void> execute2(Products products){
+        return productsRepository.addProducts(products).then(Mono.empty());
+    }
 }

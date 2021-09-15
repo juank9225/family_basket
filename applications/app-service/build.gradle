@@ -7,6 +7,7 @@ dependencies {
 	implementation project(':mongo-repository')
     implementation project(':model')
     implementation project(':usecase')
+    implementation project(':sub-events')
     implementation 'org.springframework.boot:spring-boot-starter'
     runtimeOnly('org.springframework.boot:spring-boot-devtools')
     implementation 'org.springframework.boot:spring-boot-starter-json'
