@@ -20,4 +20,14 @@ public class UpdateProductsUseCase {
                         .build()))
                 .switchIfEmpty(Mono.error(new IllegalAccessError("Producto no encontrado")));
     }
+
+    public Mono<Void> executeEvents(Products products){
+        return productsRepository.getProductId(products.getId())
+                .flatMap(product -> productsRepository.updateProducts(product.toBuilder()
+                        .nombre(products.getNombre())
+                        .codigo(products.getCodigo())
+                        .precio(products.getPrecio())
+                        .lote(products.getLote())
+                        .build())).then(Mono.empty());
+    }
 }
