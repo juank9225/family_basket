@@ -13,6 +13,8 @@
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
         compile project(':usecase')
         compile project(':model')
+        compile "io.projectreactor.rabbitmq:reactor-rabbitmq:1.5.3"
+        compile group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.0-alpha3'
         compile 'org.reactivecommons:async-commons-api:0.4.7'
         compile 'org.reactivecommons.utils:object-mapper:0.1.0'
         compile group: 'org.reactivecommons', name: 'async-commons-starter', version: '0.4.7'

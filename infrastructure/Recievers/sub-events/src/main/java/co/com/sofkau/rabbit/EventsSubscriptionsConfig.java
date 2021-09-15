@@ -31,12 +31,6 @@ public class EventsSubscriptionsConfig {
                 .lote(event.getData().getLote())
                 .precio(event.getData().getPrecio())
                 .build()), Products.class);
-
-        //event -> createProductsUseCase.execute(event.getData()), ProductsDTO.class);
-        //.createPerson(event.getData().getBalance()),
-        //PersonDTO.class);
-        //.listenEvent(DELETE_PERSON, event -> personUseCase.deletePerson(event.getData().getId()),
-        //PersonDTO.class);
     }
 
 }
